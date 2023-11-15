@@ -1,0 +1,62 @@
+Namespace(epoch=60000, n_way=5, k_spt=1, k_qry=15, imgsz=84, imgc=3, task_num=4, meta_lr=0.001, update_lr=0.01, update_step=5, update_step_test=10)
+Meta(
+  (net): Learner(
+    conv2d:(ch_in:3, ch_out:32, k:3x3, stride:1, padding:0)
+    relu:(True,)
+    bn:(32,)
+    max_pool2d:(k:2, stride:2, padding:0)
+    conv2d:(ch_in:32, ch_out:32, k:3x3, stride:1, padding:0)
+    relu:(True,)
+    bn:(32,)
+    max_pool2d:(k:2, stride:2, padding:0)
+    conv2d:(ch_in:32, ch_out:32, k:3x3, stride:1, padding:0)
+    relu:(True,)
+    bn:(32,)
+    max_pool2d:(k:2, stride:2, padding:0)
+    conv2d:(ch_in:32, ch_out:32, k:3x3, stride:1, padding:0)
+    relu:(True,)
+    bn:(32,)
+    max_pool2d:(k:2, stride:1, padding:0)
+    flatten:()
+    linear:(in:800, out:5)
+    
+    (vars): ParameterList(
+        (0): Parameter containing: [torch.float32 of size 32x3x3x3]
+        (1): Parameter containing: [torch.float32 of size 32]
+        (2): Parameter containing: [torch.float32 of size 32]
+        (3): Parameter containing: [torch.float32 of size 32]
+        (4): Parameter containing: [torch.float32 of size 32x32x3x3]
+        (5): Parameter containing: [torch.float32 of size 32]
+        (6): Parameter containing: [torch.float32 of size 32]
+        (7): Parameter containing: [torch.float32 of size 32]
+        (8): Parameter containing: [torch.float32 of size 32x32x3x3]
+        (9): Parameter containing: [torch.float32 of size 32]
+        (10): Parameter containing: [torch.float32 of size 32]
+        (11): Parameter containing: [torch.float32 of size 32]
+        (12): Parameter containing: [torch.float32 of size 32x32x3x3]
+        (13): Parameter containing: [torch.float32 of size 32]
+        (14): Parameter containing: [torch.float32 of size 32]
+        (15): Parameter containing: [torch.float32 of size 32]
+        (16): Parameter containing: [torch.float32 of size 5x800]
+        (17): Parameter containing: [torch.float32 of size 5]
+    )
+    (vars_bn): ParameterList(
+        (0): Parameter containing: [torch.float32 of size 32]
+        (1): Parameter containing: [torch.float32 of size 32]
+        (2): Parameter containing: [torch.float32 of size 32]
+        (3): Parameter containing: [torch.float32 of size 32]
+        (4): Parameter containing: [torch.float32 of size 32]
+        (5): Parameter containing: [torch.float32 of size 32]
+        (6): Parameter containing: [torch.float32 of size 32]
+        (7): Parameter containing: [torch.float32 of size 32]
+    )
+  )
+)
+Total trainable tensors: 32901
+shuffle DB :train, b:10000, 5-way, 1-shot, 15-query, resize:84
+shuffle DB :test, b:100, 5-way, 1-shot, 15-query, resize:84
+Start training...
+epoch: 1
+step: 100       training acc: [0.19333333 0.27       0.27       0.26666667 0.27       0.26666667]       time:47.8622s
+step: 200       training acc: [0.16       0.33333333 0.33       0.34666667 0.34       0.34      ]       time:42.2912s
+step: 300       training acc: [0.28       0.39       0.38333333 0.38666667 0.37666667 0.37666667]       time:42.8742s
