@@ -91,9 +91,18 @@ def main(args):
     
     ## 测试最终模型
     print('Testing...')
-    
+    for _ in range(1000//args.task_num):
+        # test
+        x_spt, y_spt, x_qry, y_qry = db_train.next('test')
+        x_spt, y_spt, x_qry, y_qry = torch.from_numpy(x_spt).to(device), torch.from_numpy(y_spt).to(device), \
+                                     torch.from_numpy(x_qry).to(device), torch.from_numpy(y_qry).to(device)
+
+        # split to single task each time
+        for x_spt_one, y_spt_one, x_qry_one, y_qry_one in zip(x_spt, y_spt, x_qry, y_qry):
+            test_acc = maml.finetunning(x_spt_one, y_spt_one, x_qry_one, y_qry_one)
+            accs.append( test_acc )
     last_time = time.time() # 记录开始时间
-    print('Total time:{:.4f}s'.format(last_time - ori_time)) # 打印总时间
+    print('Final test:', '\tacc:', test_acc, '\tTotal time:{:.4f}s'.format(last_time - ori_time)) # 打印总时间
 
 if __name__ == '__main__':
 
