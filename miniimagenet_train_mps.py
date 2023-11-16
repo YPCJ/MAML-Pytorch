@@ -46,9 +46,16 @@ def main():
         ('flatten', []),                    # 展平层
         ('linear', [args.n_way, 32 * 5 * 5])# 全连接层，输入通道数为32*5*5，这个5*5是经过四次池化后的结果，输出通道数为n_way,由args指定
     ]
-
-    device = torch.device('mps') # 指定设备 MPS
-    maml = Meta(args, config).to(device) # 实例化Meta类，传入参数和网络结构，将网络放到MPS上
+    
+    ## 设定设备
+    if torch.cuda.is_available(): # 判断是否有GPU
+        device = torch.device('cuda:0') # 指定设备 cuda
+    elif torch.backends.mps.is_available(): # 判断是否有MPS
+        device = torch.device('mps') # 指定设备 mps
+    else:
+        device = torch.device('cpu') # 指定设备 cpu
+            
+    maml = Meta(args, config).to(device) # 实例化Meta类，传入参数和网络结构，将网络放到device上
 
     tmp = filter(lambda x: x.requires_grad, maml.parameters()) # 过滤出需要梯度的参数
     num = sum(map(lambda x: np.prod(x.shape), tmp)) # 计算需要梯度的参数的个数
@@ -99,7 +106,7 @@ def main():
                 # [b, update_step+1]
                 accs = np.array(accs_all_test).mean(axis=0).astype(np.float16) # 计算所有任务的准确率的均值
                 end_time_test = time.time() # 记录结束时间
-                print('Test step:', (step+1)//500, 'Test acc:\t', accs,'\ttest time:{:.4f}s'.format(end_time_test-start_time_test)) # 打印准确率和时间
+                print('Test step:', (step+1)//500, '\tacc:', accs,'\ttest time:{:.4f}s'.format(end_time_test-start_time_test)) # 打印准确率和时间
                 start_time = time.time() # 重置时间
                 
     print('Final:')

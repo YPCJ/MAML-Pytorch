@@ -4,6 +4,7 @@ from    omniglotNShot import OmniglotNShot
 import  argparse
 
 from    meta import Meta
+import time
 
 def main(args):
 
@@ -30,7 +31,14 @@ def main(args):
         ('linear', [args.n_way, 64])
     ]
 
-    device = torch.device('mps')
+    ## 设定设备
+    if torch.cuda.is_available(): # 判断是否有GPU
+        device = torch.device('cuda:0') # 指定设备 cuda
+    elif torch.backends.mps.is_available(): # 判断是否有MPS
+        device = torch.device('mps') # 指定设备 mps
+    else:
+        device = torch.device('cpu') # 指定设备 cpu
+    
     maml = Meta(args, config).to(device)
 
     tmp = filter(lambda x: x.requires_grad, maml.parameters())
@@ -44,9 +52,12 @@ def main(args):
                        k_shot=args.k_spt,
                        k_query=args.k_qry,
                        imgsz=args.imgsz)
-
+    
+    print('Start training...')
+    ori_time = time.time() # 记录开始时间
     for step in range(args.epoch):
-
+        if step == 0:
+            start_time = time.time() # 记录开始100轮的时间
         x_spt, y_spt, x_qry, y_qry = db_train.next()
         x_spt, y_spt, x_qry, y_qry = torch.from_numpy(x_spt).to(device), torch.from_numpy(y_spt).to(device), \
                                      torch.from_numpy(x_qry).to(device), torch.from_numpy(y_qry).to(device)
@@ -54,10 +65,12 @@ def main(args):
         # set traning=True to update running_mean, running_variance, bn_weights, bn_bias
         accs = maml(x_spt, y_spt, x_qry, y_qry)
 
-        if step % 50 == 0:
-            print('step:', step, '\ttraining acc:', accs)
-
-        if step % 500 == 0:
+        if step % 100 == 99:
+            end_time = time.time() # 记录结束100轮的时间
+            print('step:', step+1, '\ttraining acc:', accs, '\ttime:{:.4f}s'.format(end_time - start_time))
+            start_time = time.time() # 记录开始100轮的时间
+        if step % 500 == 499:
+            start_test_time = time.time() # 记录开始测试的时间
             accs = []
             for _ in range(1000//args.task_num):
                 # test
@@ -72,8 +85,15 @@ def main(args):
 
             # [b, update_step+1]
             accs = np.array(accs).mean(axis=0).astype(np.float16)
-            print('Test acc:', accs)
-
+            end_test_time = time.time() # 记录结束测试的时间
+            print('Test step:', (step+1)//500,'\tacc:', accs,'\ttest time:{:.4f}s'.format(end_time_test-start_time_test))
+            start_time = time.time() # 记录开始100轮的时间
+    
+    ## 测试最终模型
+    print('Testing...')
+    
+    last_time = time.time() # 记录开始时间
+    print('Total time:{:.4f}s'.format(last_time - ori_time)) # 打印总时间
 
 if __name__ == '__main__':
 

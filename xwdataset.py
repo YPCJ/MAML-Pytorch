@@ -15,7 +15,7 @@ class xwdataset(Dateset):
         ####################################################################################################################
         # 设定整个数据集的路径
         # 获取当前运行文件路径
-        root
+        print('root:', root)
         self.path = os.path.join(root, 'data')
         # 先定义一些全局变量，经过筛选后得到的连续量和状态量的参数名
         # 连续量
@@ -113,12 +113,9 @@ class xwdataset(Dateset):
         data_state = data_origin[state_vars].copy() # 读取状态量
         file_num = data_origin['No.'].copy() # 读取文件编号
         
-        x1_train = np.empty((0, time_lag, data_num.shape[-1]), dtype=np.float32)
-        x2_train = np.empty((0, time_lag, data_state.shape[-1]), dtype=np.int32)
-        y_train = np.empty((0, len(all_fault)), dtype=np.int32)
-        x1_valid = x1_train.copy()
-        x2_valid = x2_train.copy()
-        y_valid = y_train.copy()
+        x1 = np.empty((0, time_lag, data_num.shape[-1]), dtype=np.float32)
+        x2 = np.empty((0, time_lag, data_state.shape[-1]), dtype=np.int32)
+        y = np.empty((0, len(all_fault)), dtype=np.int32)
         
         for i in range(np.max(file_num)):
             position = (file_num == i) # 选出第i个文件的数据，每个文件对应了一个故障类型，即一个标签，所以每个文件的数据都是同一类故障
@@ -126,12 +123,13 @@ class xwdataset(Dateset):
             branch_state = self.add_window_(data_state[position], time_lag, dtype=np.int32)  # 加时滞窗，升维度
             plb = np.array(data_label[position], dtype=np.int32)[time_lag - 1:] # 标签
             plb = self.to_categorical(plb, len(all_fault)) # 独热编码，这里其实是多分类问题，所以标签是独热编码，但其实在每次循环里，plb都是同一类故障
-            x1_train_temp, x2_train_temp, y_train_temp, x1_valid_temp, x2_valid_temp, y_valid_temp \
-                = self.split_data(data1=branch_num, data2=branch_state, label=plb, per=0.7)  # 划分数据集为训练+验证
+            x1_temp = branch_num
+            x2_temp = branch_state
+            y_temp = plb
             x1_train = np.vstack([x1_train, x1_train_temp]) # 垂直拼接，x1_train的尺寸为(样本数,时滞,模拟量个数)
             x2_train = np.vstack([x2_train, x2_train_temp]) # 垂直拼接，x2_train的尺寸为(样本数,时滞,状态量个数)
             y_train = np.vstack([y_train, y_train_temp]) # 垂直拼接，y_train的尺寸为(样本数,故障类型个数)
             x1_valid = np.vstack([x1_valid, x1_valid_temp]) # 垂直拼接，x1_valid的尺寸为(样本数,时滞,模拟量个数)
             x2_valid = np.vstack([x2_valid, x2_valid_temp]) # 垂直拼接，x2_valid的尺寸为(样本数,时滞,状态量个数)
             y_valid = np.vstack([y_valid, y_valid_temp]) # 垂直拼接，y_valid的尺寸为(样本数,故障类型个数)
-        
+        return 
