@@ -117,7 +117,7 @@ class xwdataset(Dateset):
         x2 = np.empty((0, time_lag, data_state.shape[-1]), dtype=np.int32)
         y = np.empty((0, len(all_fault)), dtype=np.int32)
         
-        for i in range(np.max(file_num)):
+        for i in range(np.max(file_num+1)):
             position = (file_num == i) # 选出第i个文件的数据，每个文件对应了一个故障类型，即一个标签，所以每个文件的数据都是同一类故障
             branch_num = self.add_window_(data_num[position], time_lag, dtype=np.float32)  # 加时滞窗，升维度
             branch_state = self.add_window_(data_state[position], time_lag, dtype=np.int32)  # 加时滞窗，升维度

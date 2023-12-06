@@ -135,7 +135,7 @@ class Meta(nn.Module):
                 with torch.no_grad():
                     pred_q = F.softmax(logits_q, dim=1).argmax(dim=1) # 计算预测值，dim=1表示按行计算，argmax(dim=1)表示取每行的最大值的索引，logits_q是查询集的输出，使用softmax函数计算概率，然后取最大概率的索引
                     correct = torch.eq(pred_q, y_qry[i]).sum().item()  # convert to numpy # 计算准确率，torch.eq(pred_q, y_qry[i])表示比较预测值和标签，相等的返回True，不相等的返回False，然后使用sum函数计算True的个数，最后使用item函数将结果转换为标量
-                    corrects[k + 1] = corrects[k + 1] + correct # 累加准确率，corrects[k + 1]表示第k+1步的准确率，k从1开始，所以累加的准确率是从第二步开始的
+                    corrects[k + 1] = corrects[k + 1] + correct # 累加正确数，corrects[k + 1]表示第k+1步的正确数，k从1开始，所以累加的正确数是从第二步开始的
 
 
 

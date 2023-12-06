@@ -5,12 +5,12 @@ import  numpy as np
 
 
 
-class Learner(nn.Module):
+class ts_Learner(nn.Module):
     """
 
     """
 
-    def __init__(self, config, imgc, imgsz):
+    def __init__(self, config, time_windows, var_num):
         """
 
         :param config: network config file, type:list of (string, list)
@@ -37,11 +37,24 @@ class Learner(nn.Module):
                 # [ch_out] # 定义偏置参数
                 self.vars.append(nn.Parameter(torch.zeros(param[0]))) # 将偏置参数添加到vars中
 
-            elif name == 'convt2d':
+            elif name == 'convt2d': # 转置卷积层
                 # [ch_in, ch_out, kernelsz, kernelsz, stride, padding]
                 w = nn.Parameter(torch.ones(*param[:4]))
                 # gain=1 according to cbfin's implementation
                 torch.nn.init.kaiming_normal_(w)
+                self.vars.append(w)
+                # [ch_in, ch_out]
+                self.vars.append(nn.Parameter(torch.zeros(param[1])))
+
+            elif name == 'lstm': # LSTM层
+                # [input_size, hidden_size, num_layers]
+                h0 = nn.Parameter(torch.zeros(param[2],1,param[1])) # 定义h0参数
+                c0 = nn.Parameter(torch.zeros(param[2],1,param[1])) # 定义c0参数
+                w = nn.Parameter(torch.ones(*param[:4]))
+                # gain=1 according to cbfin's implementation
+                torch.nn.init.kaiming_normal_(h0)
+                torch.nn.init.kaiming_normal_(c0)
+                torch.nn.init.kaiming_normal_(w) # 使用kaiming_normal_初始化卷积核参数
                 self.vars.append(w)
                 # [ch_in, ch_out]
                 self.vars.append(nn.Parameter(torch.zeros(param[1])))
@@ -93,11 +106,15 @@ class Learner(nn.Module):
                       %(param[0], param[1], param[2], param[3], param[4], param[5],)
                 info += tmp + '\n'
 
-            elif name == 'linear':
+            elif name == 'lstm': # LSTM层
+                tmp = 'lstm:(ch_in:%d, ch_out:%d)'%(param[0], param[1])
+                info += tmp + '\n'
+
+            elif name == 'linear': # 全连接层
                 tmp = 'linear:(in:%d, out:%d)'%(param[1], param[0])
                 info += tmp + '\n'
 
-            elif name == 'leakyrelu':
+            elif name == 'leakyrelu': # leakyrelu激活函数
                 tmp = 'leakyrelu:(slope:%f)'%(param[0])
                 info += tmp + '\n'
 
@@ -149,6 +166,11 @@ class Learner(nn.Module):
                 x = F.conv_transpose2d(x, w, b, stride=param[4], padding=param[5])
                 idx += 2
                 # print(name, param, '\tout:', x.shape)
+            elif name == 'lstm':
+                w, b = vars[idx], vars[idx + 1]
+                x = F.lstm(x, w, b, stride=param[4], padding=param[5])
+                idx += 2
+                # print(name, param, '\tout:', x.shape)
             elif name == 'linear':
                 w, b = vars[idx], vars[idx + 1]
                 x = F.linear(x, w, b)
@@ -178,7 +200,7 @@ class Learner(nn.Module):
             elif name == 'upsample':
                 x = F.upsample_nearest(x, scale_factor=param[0])
             elif name == 'max_pool2d':
-                x = F.max_pool2d(x, param[0], param[1], param[2]) 
+                x = F.max_pool2d(x, param[0], param[1], param[2])
             elif name == 'avg_pool2d':
                 x = F.avg_pool2d(x, param[0], param[1], param[2])
 
