@@ -1,0 +1,1 @@
+两个输入模块的layernorm层和dropout层，lstm中只在c_t更新时加入dropout层，输出模块没有layernorm层

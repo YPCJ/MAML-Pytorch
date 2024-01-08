@@ -1,0 +1,434 @@
+shuffle DB :train, b:5, 5-way, 1-shot, 15-query
+[ 502.  502. 2004. 2008. 2510. 3012. 3012. 3012.  502.  502. 2510. 3012.
+ 2510. 3011.  502.  502.  502.  502.  502.  502.  502. 3012. 3012. 3012.]
+ts_Learner(
+  (vars): ParameterList(
+      (0): Parameter containing: [torch.float32 of size 128x51]
+      (1): Parameter containing: [torch.float32 of size 128]
+      (2): Parameter containing: [torch.float32 of size 64x128]
+      (3): Parameter containing: [torch.float32 of size 64]
+      (4): Parameter containing: [torch.float32 of size 4x4]
+      (5): Parameter containing: [torch.float32 of size 128x208]
+      (6): Parameter containing: [torch.float32 of size 128]
+      (7): Parameter containing: [torch.float32 of size 64x128]
+      (8): Parameter containing: [torch.float32 of size 64]
+      (9): Parameter containing: [torch.float32 of size 64x128]
+      (10): Parameter containing: [torch.float32 of size 64x64]
+      (11): Parameter containing: [torch.float32 of size 64x128]
+      (12): Parameter containing: [torch.float32 of size 64x64]
+      (13): Parameter containing: [torch.float32 of size 64x128]
+      (14): Parameter containing: [torch.float32 of size 64x64]
+      (15): Parameter containing: [torch.float32 of size 64x128]
+      (16): Parameter containing: [torch.float32 of size 64x64]
+      (17): Parameter containing: [torch.float32 of size 64]
+      (18): Parameter containing: [torch.float32 of size 64]
+      (19): Parameter containing: [torch.float32 of size 64]
+      (20): Parameter containing: [torch.float32 of size 64]
+      (21): Parameter containing: [torch.float32 of size 64]
+      (22): Parameter containing: [torch.float32 of size 64]
+      (23): Parameter containing: [torch.float32 of size 64]
+      (24): Parameter containing: [torch.float32 of size 64]
+      (25): Parameter containing: [torch.float32 of size 24x64]
+      (26): Parameter containing: [torch.float32 of size 24]
+  )
+)
+Epoch: 1 loss: 1.6825 accuracy: 0.4778
+learning rate: 0.00098411944181564
+Epoch: 2 loss: 0.8174 accuracy: 0.7116
+learning rate: 0.0009684910757595268
+Epoch: 3 loss: 0.5963 accuracy: 0.7780
+learning rate: 0.0009531108968798942
+Epoch: 4 loss: 0.4856 accuracy: 0.8091
+learning rate: 0.0009379749638258455
+Epoch: 5 loss: 0.4216 accuracy: 0.8282
+learning rate: 0.0009230793978373363
+Epoch: 6 loss: 0.3788 accuracy: 0.8414
+learning rate: 0.0009084203817511963
+Epoch: 7 loss: 0.3496 accuracy: 0.8477
+learning rate: 0.0008939941590229378
+Epoch: 8 loss: 0.3249 accuracy: 0.8560
+learning rate: 0.000879797032764096
+Epoch: 9 loss: 0.3086 accuracy: 0.8602
+learning rate: 0.0008658253647948586
+Epoch: 10 loss: 0.2926 accuracy: 0.8661
+learning rate: 0.0008512234991370274
+Epoch: 11 loss: 0.2815 accuracy: 0.8680
+learning rate: 0.0008377055948310873
+Epoch: 12 loss: 0.2650 accuracy: 0.8742
+learning rate: 0.0008244023623910083
+Epoch: 13 loss: 0.2520 accuracy: 0.8784
+learning rate: 0.0008113103927077342
+Epoch: 14 loss: 0.2463 accuracy: 0.8804
+learning rate: 0.0007984263308107629
+Epoch: 15 loss: 0.2391 accuracy: 0.8824
+learning rate: 0.0007857468750083976
+Epoch: 16 loss: 0.2408 accuracy: 0.8820
+learning rate: 0.000773268776041648
+Epoch: 17 loss: 0.2255 accuracy: 0.8862
+learning rate: 0.0007609888362515698
+Epoch: 18 loss: 0.2224 accuracy: 0.8885
+learning rate: 0.0007489039087598284
+Epoch: 19 loss: 0.2148 accuracy: 0.8915
+learning rate: 0.0007370108966622736
+Epoch: 20 loss: 0.2088 accuracy: 0.8933
+learning rate: 0.0007245814454830857
+Epoch: 21 loss: 0.2130 accuracy: 0.8915
+learning rate: 0.0007130746876787837
+Epoch: 22 loss: 0.2031 accuracy: 0.8951
+learning rate: 0.0007017506636113063
+Epoch: 23 loss: 0.2021 accuracy: 0.8959
+learning rate: 0.0006906064713669135
+Epoch: 24 loss: 0.1984 accuracy: 0.8974
+learning rate: 0.0006796392551158754
+Epoch: 25 loss: 0.1967 accuracy: 0.8956
+learning rate: 0.0006688462043806325
+Epoch: 26 loss: 0.1893 accuracy: 0.8992
+learning rate: 0.0006582245533155775
+Epoch: 27 loss: 0.1850 accuracy: 0.9020
+learning rate: 0.0006477715799982751
+Epoch: 28 loss: 0.1838 accuracy: 0.9014
+learning rate: 0.0006374846057319377
+Epoch: 29 loss: 0.1849 accuracy: 0.9013
+learning rate: 0.0006273609943589778
+Epoch: 30 loss: 0.1832 accuracy: 0.9013
+learning rate: 0.0006167807534338766
+Epoch: 31 loss: 0.1862 accuracy: 0.8993
+learning rate: 0.0006069859307919766
+Epoch: 32 loss: 0.1812 accuracy: 0.9021
+learning rate: 0.0005973466554009467
+Epoch: 33 loss: 0.1814 accuracy: 0.9025
+learning rate: 0.0005878604570836191
+Epoch: 34 loss: 0.1712 accuracy: 0.9074
+learning rate: 0.0005785249048906182
+Epoch: 35 loss: 0.1708 accuracy: 0.9056
+learning rate: 0.0005693376064774013
+Epoch: 36 loss: 0.1709 accuracy: 0.9056
+learning rate: 0.0005602962074911927
+Epoch: 37 loss: 0.1684 accuracy: 0.9062
+learning rate: 0.0005513983909676524
+Epoch: 38 loss: 0.1683 accuracy: 0.9066
+learning rate: 0.0005426418767371282
+Epoch: 39 loss: 0.1682 accuracy: 0.9063
+learning rate: 0.0005340244208403337
+Epoch: 40 loss: 0.1677 accuracy: 0.9079
+learning rate: 0.0005250182711383563
+Epoch: 41 loss: 0.1582 accuracy: 0.9100
+learning rate: 0.0005166806879356914
+Epoch: 42 loss: 0.1614 accuracy: 0.9095
+learning rate: 0.0005084755102081937
+Epoch: 43 loss: 0.1616 accuracy: 0.9080
+learning rate: 0.0005004006352830104
+Epoch: 44 loss: 0.1566 accuracy: 0.9113
+learning rate: 0.0004924539938789076
+Epoch: 45 loss: 0.1581 accuracy: 0.9104
+learning rate: 0.00048463354957599327
+Epoch: 46 loss: 0.1611 accuracy: 0.9088
+learning rate: 0.0004769372982938587
+Epoch: 47 loss: 0.1548 accuracy: 0.9117
+learning rate: 0.0004693632677780116
+Epoch: 48 loss: 0.1565 accuracy: 0.9105
+learning rate: 0.0004619095170944615
+Epoch: 49 loss: 0.1539 accuracy: 0.9115
+learning rate: 0.0004545741361323333
+Epoch: 50 loss: 0.1529 accuracy: 0.9127
+learning rate: 0.00044690788986926424
+Epoch: 51 loss: 0.1518 accuracy: 0.9137
+learning rate: 0.00043981074312114595
+Epoch: 52 loss: 0.1511 accuracy: 0.9126
+learning rate: 0.00043282630302490387
+Epoch: 53 loss: 0.1507 accuracy: 0.9134
+learning rate: 0.0004259527797359955
+Epoch: 54 loss: 0.1467 accuracy: 0.9144
+learning rate: 0.00041918841183360815
+Epoch: 55 loss: 0.1479 accuracy: 0.9133
+learning rate: 0.0004125314658692751
+Epoch: 56 loss: 0.1468 accuracy: 0.9137
+learning rate: 0.0004059802359226587
+Epoch: 57 loss: 0.1478 accuracy: 0.9131
+learning rate: 0.0003995330431643887
+Epoch: 58 loss: 0.1513 accuracy: 0.9112
+learning rate: 0.00039318823542584217
+Epoch: 59 loss: 0.1464 accuracy: 0.9141
+learning rate: 0.0003869441867757563
+Epoch: 60 loss: 0.1417 accuracy: 0.9173
+learning rate: 0.00038041849780646027
+Epoch: 61 loss: 0.1452 accuracy: 0.9140
+learning rate: 0.0003743772397176379
+Epoch: 62 loss: 0.1467 accuracy: 0.9140
+learning rate: 0.00036843192017940187
+Epoch: 63 loss: 0.1445 accuracy: 0.9137
+learning rate: 0.0003625810156340173
+Epoch: 64 loss: 0.1408 accuracy: 0.9164
+learning rate: 0.0003568230267186969
+Epoch: 65 loss: 0.1433 accuracy: 0.9160
+learning rate: 0.0003511564778813712
+Epoch: 66 loss: 0.1420 accuracy: 0.9161
+learning rate: 0.00034557991700256106
+Epoch: 67 loss: 0.1423 accuracy: 0.9163
+learning rate: 0.0003400919150232556
+Epoch: 68 loss: 0.1419 accuracy: 0.9169
+learning rate: 0.00033469106557869837
+Epoch: 69 loss: 0.1404 accuracy: 0.9150
+learning rate: 0.0003293759846379904
+Epoch: 70 loss: 0.1394 accuracy: 0.9156
+learning rate: 0.00032382116483926666
+Epoch: 71 loss: 0.1364 accuracy: 0.9185
+learning rate: 0.00031867870398970955
+Epoch: 72 loss: 0.1412 accuracy: 0.9169
+learning rate: 0.0003136179082888845
+Epoch: 73 loss: 0.1371 accuracy: 0.9170
+learning rate: 0.00030863748084864563
+Epoch: 74 loss: 0.1370 accuracy: 0.9168
+learning rate: 0.00030373614537615445
+Epoch: 75 loss: 0.1385 accuracy: 0.9155
+learning rate: 0.0002989126458468152
+Epoch: 76 loss: 0.1350 accuracy: 0.9184
+learning rate: 0.0002941657461824038
+Epoch: 77 loss: 0.1383 accuracy: 0.9165
+learning rate: 0.00028949422993430825
+Epoch: 78 loss: 0.1385 accuracy: 0.9163
+learning rate: 0.0002848968999718001
+Epoch: 79 loss: 0.1345 accuracy: 0.9182
+learning rate: 0.0002803725781752542
+Epoch: 80 loss: 0.1339 accuracy: 0.9187
+learning rate: 0.0002756441850291089
+Epoch: 81 loss: 0.1336 accuracy: 0.9177
+learning rate: 0.00027126680151057367
+Epoch: 82 loss: 0.1376 accuracy: 0.9174
+learning rate: 0.00026695893328569984
+Epoch: 83 loss: 0.1340 accuracy: 0.9193
+learning rate: 0.00026271947641282164
+Epoch: 84 loss: 0.1329 accuracy: 0.9202
+learning rate: 0.0002585473444814833
+Epoch: 85 loss: 0.1327 accuracy: 0.9173
+learning rate: 0.0002544414683340333
+Epoch: 86 loss: 0.1376 accuracy: 0.9172
+learning rate: 0.00025040079579164066
+Epoch: 87 loss: 0.1361 accuracy: 0.9180
+learning rate: 0.00024642429138466143
+Epoch: 88 loss: 0.1317 accuracy: 0.9178
+learning rate: 0.0002425109360872877
+Epoch: 89 loss: 0.1305 accuracy: 0.9191
+learning rate: 0.0002386597270564099
+Epoch: 90 loss: 0.1324 accuracy: 0.9169
+learning rate: 0.00023463480769725245
+Epoch: 91 loss: 0.1310 accuracy: 0.9178
+learning rate: 0.0002309086759815401
+Epoch: 92 loss: 0.1318 accuracy: 0.9192
+learning rate: 0.0002272417173173417
+Epoch: 93 loss: 0.1339 accuracy: 0.9172
+learning rate: 0.00022363299200356976
+Epoch: 94 loss: 0.1308 accuracy: 0.9186
+learning rate: 0.0002200815752621145
+Epoch: 95 loss: 0.1313 accuracy: 0.9190
+learning rate: 0.00021658655700085893
+Epoch: 96 loss: 0.1313 accuracy: 0.9178
+learning rate: 0.00021314704158045656
+Epoch: 97 loss: 0.1302 accuracy: 0.9216
+learning rate: 0.00020976214758481395
+Epoch: 98 loss: 0.1296 accuracy: 0.9193
+learning rate: 0.00020643100759521702
+Epoch: 99 loss: 0.1293 accuracy: 0.9193
+learning rate: 0.00020315276796804515
+Epoch: 100 loss: 0.1321 accuracy: 0.9176
+learning rate: 0.0001997266620273989
+Epoch: 101 loss: 0.1282 accuracy: 0.9204
+learning rate: 0.0001965548911501048
+Epoch: 102 loss: 0.1284 accuracy: 0.9192
+learning rate: 0.00019343348976477498
+Epoch: 103 loss: 0.1296 accuracy: 0.9182
+learning rate: 0.00019036165797576158
+Epoch: 104 loss: 0.1275 accuracy: 0.9187
+learning rate: 0.00018733860859020628
+Epoch: 105 loss: 0.1273 accuracy: 0.9195
+learning rate: 0.00018436356691631247
+Epoch: 106 loss: 0.1289 accuracy: 0.9186
+learning rate: 0.0001814357705648218
+Epoch: 107 loss: 0.1293 accuracy: 0.9190
+learning rate: 0.00017855446925364298
+Epoch: 108 loss: 0.1278 accuracy: 0.9186
+learning rate: 0.00017571892461558294
+Epoch: 109 loss: 0.1277 accuracy: 0.9182
+learning rate: 0.000172928410009132
+Epoch: 110 loss: 0.1276 accuracy: 0.9185
+learning rate: 0.00017001202812192082
+Epoch: 111 loss: 0.1270 accuracy: 0.9198
+learning rate: 0.00016731214221728962
+Epoch: 112 loss: 0.1273 accuracy: 0.9201
+learning rate: 0.00016465513200785803
+Epoch: 113 loss: 0.1281 accuracy: 0.9194
+learning rate: 0.00016204031660365376
+Epoch: 114 loss: 0.1282 accuracy: 0.9194
+learning rate: 0.00015946702592761734
+Epoch: 115 loss: 0.1271 accuracy: 0.9208
+learning rate: 0.0001569346005438869
+Epoch: 116 loss: 0.1271 accuracy: 0.9192
+learning rate: 0.00015444239148881036
+Epoch: 117 loss: 0.1266 accuracy: 0.9214
+learning rate: 0.00015198976010464058
+Epoch: 118 loss: 0.1283 accuracy: 0.9189
+learning rate: 0.00014957607787587188
+Epoch: 119 loss: 0.1263 accuracy: 0.9196
+learning rate: 0.0001472007262681757
+Epoch: 120 loss: 0.1259 accuracy: 0.9210
+learning rate: 0.000144718233473324
+Epoch: 121 loss: 0.1263 accuracy: 0.9185
+learning rate: 0.00014242002714631312
+Epoch: 122 loss: 0.1251 accuracy: 0.9188
+learning rate: 0.00014015831761859794
+Epoch: 123 loss: 0.1254 accuracy: 0.9206
+learning rate: 0.0001379325253006338
+Epoch: 124 loss: 0.1249 accuracy: 0.9203
+learning rate: 0.00013574207980708136
+Epoch: 125 loss: 0.1266 accuracy: 0.9191
+learning rate: 0.00013358641981063896
+Epoch: 126 loss: 0.1256 accuracy: 0.9182
+learning rate: 0.00013146499289819576
+Epoch: 127 loss: 0.1248 accuracy: 0.9189
+learning rate: 0.0001293772554292695
+Epoch: 128 loss: 0.1259 accuracy: 0.9192
+learning rate: 0.00012732267239669217
+Epoch: 129 loss: 0.1261 accuracy: 0.9194
+learning rate: 0.0001253007172895083
+Epoch: 130 loss: 0.1253 accuracy: 0.9198
+learning rate: 0.00012318756108609216
+Epoch: 131 loss: 0.1245 accuracy: 0.9199
+learning rate: 0.00012123127385467511
+Epoch: 132 loss: 0.1244 accuracy: 0.9208
+learning rate: 0.00011930605355646186
+Epoch: 133 loss: 0.1245 accuracy: 0.9187
+learning rate: 0.0001174114068312121
+Epoch: 134 loss: 0.1246 accuracy: 0.9190
+learning rate: 0.00011554684815352146
+Epoch: 135 loss: 0.1243 accuracy: 0.9207
+learning rate: 0.00011371189970840006
+Epoch: 136 loss: 0.1235 accuracy: 0.9195
+learning rate: 0.0001119060912688267
+Epoch: 137 loss: 0.1237 accuracy: 0.9214
+learning rate: 0.00011012896007524779
+Epoch: 138 loss: 0.1231 accuracy: 0.9214
+learning rate: 0.00010838005071698976
+Epoch: 139 loss: 0.1238 accuracy: 0.9204
+learning rate: 0.00010665891501555471
+Epoch: 140 loss: 0.1243 accuracy: 0.9206
+learning rate: 0.00010486014679785973
+Epoch: 141 loss: 0.1229 accuracy: 0.9203
+learning rate: 0.00010319490913541578
+Epoch: 142 loss: 0.1232 accuracy: 0.9210
+learning rate: 0.00010155611637656107
+Epoch: 143 loss: 0.1230 accuracy: 0.9210
+learning rate: 9.994334856146546e-05
+Epoch: 144 loss: 0.1225 accuracy: 0.9186
+learning rate: 9.835619239949533e-05
+Epoch: 145 loss: 0.1221 accuracy: 0.9200
+learning rate: 9.679424116330304e-05
+Epoch: 146 loss: 0.1239 accuracy: 0.9204
+learning rate: 9.525709458459824e-05
+Epoch: 147 loss: 0.1221 accuracy: 0.9212
+learning rate: 9.374435875157443e-05
+Epoch: 148 loss: 0.1218 accuracy: 0.9203
+learning rate: 9.225564600796453e-05
+Epoch: 149 loss: 0.1222 accuracy: 0.9218
+learning rate: 9.07905748536993e-05
+Epoch: 150 loss: 0.1224 accuracy: 0.9209
+learning rate: 8.925942107729648e-05
+Epoch: 151 loss: 0.1225 accuracy: 0.9215
+learning rate: 8.784193164737618e-05
+Epoch: 152 loss: 0.1223 accuracy: 0.9217
+learning rate: 8.644695274082341e-05
+Epoch: 153 loss: 0.1238 accuracy: 0.9201
+learning rate: 8.507412687796218e-05
+Epoch: 154 loss: 0.1222 accuracy: 0.9201
+learning rate: 8.372310225609308e-05
+Epoch: 155 loss: 0.1225 accuracy: 0.9214
+learning rate: 8.239353265934007e-05
+Epoch: 156 loss: 0.1222 accuracy: 0.9202
+learning rate: 8.10850773699284e-05
+Epoch: 157 loss: 0.1221 accuracy: 0.9194
+learning rate: 7.979740108087192e-05
+Epoch: 158 loss: 0.1210 accuracy: 0.9228
+learning rate: 7.853017381004642e-05
+Epoch: 159 loss: 0.1220 accuracy: 0.9228
+learning rate: 7.728307081562807e-05
+Epoch: 160 loss: 0.1208 accuracy: 0.9210
+learning rate: 7.597971674036159e-05
+Epoch: 161 loss: 0.1217 accuracy: 0.9208
+learning rate: 7.477311642783506e-05
+Epoch: 162 loss: 0.1212 accuracy: 0.9212
+learning rate: 7.35856776017769e-05
+Epoch: 163 loss: 0.1212 accuracy: 0.9206
+learning rate: 7.241709596708632e-05
+Epoch: 164 loss: 0.1209 accuracy: 0.9208
+learning rate: 7.126707206103863e-05
+Epoch: 165 loss: 0.1212 accuracy: 0.9220
+learning rate: 7.013531117654432e-05
+Epoch: 166 loss: 0.1209 accuracy: 0.9199
+learning rate: 6.902152328662699e-05
+Epoch: 167 loss: 0.1206 accuracy: 0.9215
+learning rate: 6.792542297010055e-05
+Epoch: 168 loss: 0.1218 accuracy: 0.9205
+learning rate: 6.68467293384266e-05
+Epoch: 169 loss: 0.1212 accuracy: 0.9214
+learning rate: 6.578516596373355e-05
+Epoch: 170 loss: 0.1213 accuracy: 0.9205
+learning rate: 6.467572034717073e-05
+Epoch: 171 loss: 0.1200 accuracy: 0.9219
+learning rate: 6.364863380708212e-05
+Epoch: 172 loss: 0.1208 accuracy: 0.9219
+learning rate: 6.263785797455371e-05
+Epoch: 173 loss: 0.1215 accuracy: 0.9210
+learning rate: 6.164313382644514e-05
+Epoch: 174 loss: 0.1203 accuracy: 0.9216
+learning rate: 6.066420645304801e-05
+Epoch: 175 loss: 0.1209 accuracy: 0.9197
+learning rate: 5.970082499276237e-05
+Epoch: 176 loss: 0.1200 accuracy: 0.9221
+learning rate: 5.8752742567810534e-05
+Epoch: 177 loss: 0.1208 accuracy: 0.9215
+learning rate: 5.7819716220971674e-05
+Epoch: 178 loss: 0.1203 accuracy: 0.9225
+learning rate: 5.6901506853321334e-05
+Epoch: 179 loss: 0.1207 accuracy: 0.9211
+learning rate: 5.599787916295939e-05
+Epoch: 180 loss: 0.1203 accuracy: 0.9212
+learning rate: 5.5053492983126546e-05
+Epoch: 181 loss: 0.1202 accuracy: 0.9204
+learning rate: 5.417921278455575e-05
+Epoch: 182 loss: 0.1211 accuracy: 0.9214
+learning rate: 5.3318816643547795e-05
+Epoch: 183 loss: 0.1201 accuracy: 0.9213
+learning rate: 5.247208407351871e-05
+Epoch: 184 loss: 0.1206 accuracy: 0.9216
+learning rate: 5.163879808933457e-05
+Epoch: 185 loss: 0.1193 accuracy: 0.9227
+learning rate: 5.081874515170648e-05
+Epoch: 186 loss: 0.1194 accuracy: 0.9216
+learning rate: 5.001171511246864e-05
+Epoch: 187 loss: 0.1206 accuracy: 0.9212
+learning rate: 4.9217501160725434e-05
+Epoch: 188 loss: 0.1200 accuracy: 0.9232
+learning rate: 4.843589976985372e-05
+Epoch: 189 loss: 0.1196 accuracy: 0.9222
+learning rate: 4.7666710645346735e-05
+Epoch: 190 loss: 0.1203 accuracy: 0.9212
+learning rate: 4.6862826936812774e-05
+Epoch: 191 loss: 0.1209 accuracy: 0.9213
+learning rate: 4.6118619086959114e-05
+Epoch: 192 loss: 0.1203 accuracy: 0.9214
+learning rate: 4.5386229673166325e-05
+Epoch: 193 loss: 0.1184 accuracy: 0.9229
+learning rate: 4.4665471012072884e-05
+Epoch: 194 loss: 0.1195 accuracy: 0.9211
+learning rate: 4.395615840083383e-05
+Epoch: 195 loss: 0.1196 accuracy: 0.9217
+learning rate: 4.325811006978844e-05
+Epoch: 196 loss: 0.1199 accuracy: 0.9221
+learning rate: 4.2571147135879716e-05
+Epoch: 197 loss: 0.1195 accuracy: 0.9221
+learning rate: 4.189509355681343e-05
+Epoch: 198 loss: 0.1196 accuracy: 0.9214
+learning rate: 4.122977608594526e-05
+Epoch: 199 loss: 0.1201 accuracy: 0.9204
+learning rate: 4.057502422788426e-05
+Epoch: 200 loss: 0.1200 accuracy: 0.9217
+learning rate: 3.989073952460672e-05
