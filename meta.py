@@ -111,7 +111,7 @@ class Meta(nn.Module):
                 correct = torch.eq(pred_q, y_qry[i]).sum().item() # 计算准确率，torch.eq(pred_q, y_qry[i])表示比较预测值和标签，相等的返回True，不相等的返回False，然后使用sum函数计算True的个数，最后使用item函数将结果转换为标量
                 corrects[1] = corrects[1] + correct # 累加准确率，corrects[1]表示第一次更新之后的准确率
 
-            for k in range(1, self.update_step): # 遍历每一步更新
+            for k in range(1, self.update_step): # 遍历每一步更新,可以看到self.update_step最小是2，否则不会进入循环，即至少要更新两步
                 
                 # 1. run the i-th task and compute loss for k=1~K-1 # 运行第i个任务并计算k=1~K-1时的损失
                 logits = self.net(x_spt[i], fast_weights, bn_training=True) # 计算支持集的输出,这里的fast_weights表示使用快速权重，bn_training=True表示要训练bn层
@@ -147,7 +147,7 @@ class Meta(nn.Module):
 
         # optimize theta parameters
         self.meta_optim.zero_grad() # 梯度清零
-        loss_q.backward() # 反向传播, 计算梯度, 用最后一步的损失计算梯度可以减少计算量
+        loss_q.backward() # 反向传播, 计算梯度, 这里的梯度是在所有任务上计算的梯度的和
         # print('meta update')
         # for p in self.net.parameters()[:5]:
         # 	print(torch.norm(p).item())

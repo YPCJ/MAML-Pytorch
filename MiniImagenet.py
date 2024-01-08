@@ -133,11 +133,11 @@ class MiniImagenet(Dataset):
         # [setsz, 3, resize, resize]
         support_x = torch.FloatTensor(self.setsz, 3, self.resize, self.resize) # 用于存储一个任务的支持集,setsz表示一个任务的支持集的样本数
         # [setsz]
-        support_y = np.zeros((self.setsz), dtype=np.int) # 用于存储一个任务的支持集的标签
+        support_y = np.zeros((self.setsz), dtype=np.int32) # 用于存储一个任务的支持集的标签
         # [querysz, 3, resize, resize]
         query_x = torch.FloatTensor(self.querysz, 3, self.resize, self.resize) # 用于存储一个任务的查询集,querysz表示一个任务的查询集的样本数
         # [querysz]
-        query_y = np.zeros((self.querysz), dtype=np.int) # 用于存储一个任务的查询集的标签
+        query_y = np.zeros((self.querysz), dtype=np.int32) # 用于存储一个任务的查询集的标签
 
         flatten_support_x = [os.path.join(self.path, item)
                              for sublist in self.support_x_batch[index] for item in sublist] # 将一个任务的支持集的图片的文件名转换为图片的路径，flatten_support_x是一个列表，列表中存储一个任务的所有支持集的图片的路径
